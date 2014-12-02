@@ -87,7 +87,7 @@ function! FoldFocus(bufferFunction)
   else
     silent! normal! zo
     silent! normal! zc
-    silent! normal! k3yy
+    silent! normal! yy
 
     if (tmpBufferWindow >= 0)
         execute tmpBufferWindow . 'wincmd w'
@@ -116,7 +116,7 @@ function! PasteFocusContent(windowTitle)
   execute s:foldFocus['foldStart']
 
   let is_not_eof = (foldclosedend(s:foldFocus['foldStart']) != line('$'))
-  normal! k3"_dd
+  normal! "_dd
   if (is_not_eof)
     normal! k
   endif
